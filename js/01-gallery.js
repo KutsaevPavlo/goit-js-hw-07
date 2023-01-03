@@ -6,21 +6,21 @@ console.log(galleryItems);
 console.log(createGellaryItems(galleryItems));
 
 function createGellaryItems(galleryItems){
-    const imageCards = galleryItems.map(galleryItem => {
+    return galleryItems.map(({ preview, original, description }) => {
         return `
         <div class="gallery__item">
-            <a class="gallery__link" href="large-image.jpg">
+            <a class="gallery__link" href="${original}">
                 <img
                 class="gallery__image"
-                src="small-image.jpg"
-                data-source="large-image.jpg"
-                alt="Image description"
+                src="${preview}"
+                data-source="${original}"
+                alt="${description}"
                 />
             </a>
         </div>
     `;
-    });
-    console.log(imageCards);
+    }).join('');
+    
 }
 
 
