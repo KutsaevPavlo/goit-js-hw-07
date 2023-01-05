@@ -1,7 +1,7 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
-console.log(galleryItems);
+// console.log(galleryItems);
 
 // console.log(createGellaryItems(galleryItems));
 
@@ -11,6 +11,8 @@ const createGallery = createGellaryItems(galleryItems);
 palletContainer.insertAdjacentHTML('beforeend', createGallery);
 
 palletContainer.addEventListener('click', onGalleryIttemsClick);
+
+// palletContainer.onGalleryIttemsClick('beforeend', onGalleryIttemsClick);
 
 function createGellaryItems(galleryItems){
     return galleryItems.map(({ preview, original, description }) => {
@@ -41,18 +43,20 @@ function onGalleryIttemsClick(evt) {
        
     }  
 
-    console.log(evt.target.dataset.source);
+    // console.log(evt.target.dataset.source);
+    basicLightbox.create(`
+    <div class="modal">
+    <img width="1400" height="900" src="${evt.target.dataset.source}">
+        </div>
+	`).show()
     
    
+
+
 }
 
-// const basicLightbox = require('basiclightbox')
+// basicLightbox.create(`
+// <img width="1400" height="900" src="https://placehold.it/1400x900">
+// `).show()
 
-// import * as basicLightbox from 'basiclightbox'
-
-// const instance = basicLightbox.create(`
-//     <img src="assets/images/image.png" width="800" height="600">
-// `)
-
-// instance.show()
 
